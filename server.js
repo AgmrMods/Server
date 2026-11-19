@@ -9,11 +9,10 @@
    - Kısa kopmalarda (mobil ağ geçişi) 6 sn içinde aynı id ile geri bağlanma (oda ve maç bozulmaz)
    - Odalar: "lobby*" = oda listesi (kalabalık), diğerleri = 2 kişilik maç odası, 3. kişi "full" alır
 */
-createServer((req, res) => 
-  {: if (fx.handle(req, res)) return;
 'use strict';
 const http = require('http');
 const crypto = require('crypto');
+const fx = require('./friends-store');
 
 const PORT = +process.env.PORT || 8080;
 const MAX_MATCH = 2, MAX_LOBBY = 300;
@@ -29,6 +28,7 @@ let totalConn = 0;
 
 /* ---------------- HTTP (sağlık kontrolü; Render/Railway uyandırma) ---------------- */
 const server = http.createServer((req, res) => {
+  if (fx.handle(req, res)) return;
   const h = { 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store' };
   if (req.url === '/health' || req.url === '/') {
     let p = 0, r = 0;
