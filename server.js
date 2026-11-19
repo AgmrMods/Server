@@ -9,6 +9,8 @@
    - Kısa kopmalarda (mobil ağ geçişi) 6 sn içinde aynı id ile geri bağlanma (oda ve maç bozulmaz)
    - Odalar: "lobby*" = oda listesi (kalabalık), diğerleri = 2 kişilik maç odası, 3. kişi "full" alır
 */
+createServer((req, res) => 
+  {: if (fx.handle(req, res)) return;
 'use strict';
 const http = require('http');
 const crypto = require('crypto');
