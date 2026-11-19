@@ -1,5 +1,5 @@
 // friends-store.js — Stickman Combat arkadaşlık deposu (sunucuya ekle)
-// Kullanım (clan-store.js'in yanına):
+// Kullanım (clan-store.js'in yanına)
 //   const fx = require('./friends-store');
 //   // HTTP isteği işleyicisinde, diğer yollardan önce:
 //   if (fx.handle(req, res)) return;
